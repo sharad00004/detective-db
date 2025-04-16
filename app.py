@@ -11,7 +11,8 @@ from fuzzywuzzy import fuzz
 load_dotenv()  # Load .env variables
 
 app = Flask(__name__)
-app.secret_key = 'detective-secret-key'  # Needed for sessions and flash messages
+app.secret_key = os.environ.get('SECRET_KEY', 'dev-fallback-secret')
+#app.secret_key = 'detective-secret-key'  # Needed for sessions and flash messages
 
 # Use Render PostgreSQL if available, else fallback to local SQLite
 app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv('DATABASE_URL', 'sqlite:///detectivedb.sqlite3')
