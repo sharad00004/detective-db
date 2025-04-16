@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Client Dashboard | Detective DB</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <link href="https://fonts.googleapis.com/css2?family=Special+Elite&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="container">
+    <h1 class="title">🎒 Client Dashboard</h1>
+    <p class="subtitle">Welcome to your case file area. What do you want to do?</p>
+
+    <div class="dashboard-buttons">
+      <a href="{{ url_for('report_lost') }}" class="dash-btn">📄 Report a Lost Item</a>
+      <a href="{{ url_for('report_found') }}" class="dash-btn">📦 Report a Found Item</a>
+      <a href="{{ url_for('my_submissions') }}" class="dash-btn">📁 View My Reports</a>
+      <a href="{{ url_for('client_home') }}" class="dash-btn">🌐 Explore All Cases</a>
+    </div>
+
+    <!-- Logout Button -->
+    <div class="back-btn">
+      <a href="{{ url_for('logout') }}" class="btn-secondary">🔓 Logout</a>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+      Detective DB – A service by the Lost & Found Bureau 🕵️‍♀️
+    </div>
+  </div>
+</body>
+</html>

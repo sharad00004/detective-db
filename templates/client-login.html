@@ -1,0 +1,32 @@
+<!-- client-login.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Client Login | Detective DB</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <link href="https://fonts.googleapis.com/css2?family=Special+Elite&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="container">
+    <h1 class="title">🔐 Client Login</h1>
+    <p class="subtitle">Enter the Bureau to report your lost or found items.</p>
+
+    <form method="POST" action="{{ url_for('client_login') }}" class="form">
+      <input type="email" name="email" placeholder="Your Email" required>
+      <input type="password" name="password" placeholder="Password" required>
+      <button type="submit" class="btn-primary">Login to Bureau</button>
+    </form>
+
+    <div class="back-btn" style="margin-top: 20px;">
+      <span style="margin-right: 8px;">🆕 New here?</span>
+      <a href="{{ url_for('client_register') }}" class="btn-secondary">Register Now</a>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+      Detective DB – A service by the Lost & Found Bureau 🕵️‍♀️
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Report Found Item | Detective DB</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+  <link href="https://fonts.googleapis.com/css2?family=Special+Elite&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="container">
+    <h1 class="title">📦 Report Found Item</h1>
+    <p class="subtitle">Thank you for helping! Provide the item details so we can trace the owner.</p>
+
+    <form method="POST" action="/report-found" enctype="multipart/form-data" class="form">
+      <input type="text" name="title" placeholder="Item Title (e.g., Wallet, Phone)" required>
+      <textarea name="description" placeholder="Describe the item in detail..." required></textarea>
+      
+      <select name="category" required>
+        <option value="">-- Select Category --</option>
+        <option value="Electronics">Electronics</option>
+        <option value="Documents">Documents</option>
+        <option value="Accessories">Accessories</option>
+        <option value="Clothing">Clothing</option>
+        <option value="Books">Books</option>
+        <option value="Wallet/Purse">Wallet / Purse</option>
+        <option value="Other">Other</option>
+      </select>
+
+      <input type="text" name="location_found" placeholder="Where did you find it?" required>
+      <input type="date" name="date_found" required>
+      <input type="file" name="image" accept="image/*">
+      <button type="submit" class="btn-primary">Submit Found Report</button>
+    </form>
+
+    <!-- Back Button -->
+    <div class="back-btn">
+      <a href="{{ url_for('client_dashboard') }}" class="btn-secondary">🔙 Back to Dashboard</a>
+
+    </div>
+    <!-- Footer -->
+  <div class="footer">
+    Detective DB – A service by the Lost & Found Bureau 🕵️‍♀️
+  </div>
+  </div>
+
+  
+</body>
+</html>

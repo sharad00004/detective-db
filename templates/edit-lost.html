@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Edit Lost Item | Detective DB</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <link href="https://fonts.googleapis.com/css2?family=Special+Elite&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="container">
+    <h1 class="title">✏️ Edit Lost Item</h1>
+    <p class="subtitle">Update the details of your lost item report:</p>
+
+    <form method="POST" action="{{ url_for('edit_lost', item_id=item.id) }}" enctype="multipart/form-data" class="form">
+      <input type="text" name="title" value="{{ item.title }}" placeholder="Item Title" required>
+      <textarea name="description" placeholder="Describe the item..." required>{{ item.description }}</textarea>
+
+      <select name="category" required>
+        <option value="">-- Select Category --</option>
+        <option value="Electronics" {% if item.category == 'Electronics' %}selected{% endif %}>Electronics</option>
+        <option value="Documents" {% if item.category == 'Documents' %}selected{% endif %}>Documents</option>
+        <option value="Accessories" {% if item.category == 'Accessories' %}selected{% endif %}>Accessories</option>
+        <option value="Clothing" {% if item.category == 'Clothing' %}selected{% endif %}>Clothing</option>
+        <option value="Books" {% if item.category == 'Books' %}selected{% endif %}>Books</option>
+        <option value="Wallet/Purse" {% if item.category == 'Wallet/Purse' %}selected{% endif %}>Wallet / Purse</option>
+        <option value="Other" {% if item.category == 'Other' %}selected{% endif %}>Other</option>
+      </select>
+
+      <input type="text" name="location_lost" value="{{ item.location_lost }}" placeholder="Where did you lose it?" required>
+      <input type="date" name="date_lost" value="{{ item.date_lost }}" required>
+      <input type="file" name="image" accept="image/*">
+      <button type="submit" class="btn-primary">Update Lost Report</button>
+    </form>
+
+    <div class="back-btn">
+      <a href="{{ url_for('my_submissions') }}" class="btn-secondary">🔙 Back to My Submissions</a>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+      Detective DB – A service by the Lost & Found Bureau 🕵️‍♀️
+    </div>
+  </div>
+</body>
+</html>

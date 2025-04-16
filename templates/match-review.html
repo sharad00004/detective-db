@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Review Match – Detective DB</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <link href="https://fonts.googleapis.com/css2?family=Special+Elite&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Special Elite', monospace;
+      background-color: #1c1c1c;
+      color: #f0f0f0;
+      margin: 0;
+      padding: 0;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: auto;
+      padding: 40px 20px;
+    }
+
+    .title {
+      font-size: 2rem;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    .small-btn {
+      background-color: #333;
+      color: #f0f0f0;
+      padding: 6px 12px;
+      border-radius: 6px;
+      border: 1px solid #666;
+      cursor: pointer;
+      font-size: 0.9rem;
+      text-decoration: none;
+    }
+
+    .small-btn:hover {
+      background-color: #555;
+    }
+
+    .match-container {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      margin-top: 30px;
+      flex-wrap: wrap;
+    }
+
+    .case-card {
+      flex: 1;
+      background-color: #2e2e2e;
+      border-radius: 12px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+      overflow: hidden;
+      min-width: 320px;
+    }
+
+    .case-card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      border-bottom: 1px solid #444;
+    }
+
+    .case-card .content {
+      padding: 15px;
+    }
+
+    .content h3 {
+      margin-top: 0;
+      font-size: 1.2rem;
+      color: #ffdd57;
+    }
+
+    .content p {
+      margin: 5px 0;
+      font-size: 0.95rem;
+    }
+
+    .action-buttons {
+      text-align: center;
+      margin-top: 40px;
+    }
+
+    .btn-approve {
+      background-color: #4caf50;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 8px;
+      font-size: 1rem;
+      margin: 0 10px;
+      cursor: pointer;
+    }
+
+    .btn-reject {
+      background-color: #e74c3c;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 8px;
+      font-size: 1rem;
+      margin: 0 10px;
+      cursor: pointer;
+    }
+
+    .btn-approve:hover {
+      background-color: #45a049;
+    }
+
+    .btn-reject:hover {
+      background-color: #c0392b;
+    }
+
+    .footer {
+      margin-top: 50px;
+      text-align: center;
+      font-size: 14px;
+      color: #888;
+      border-top: 1px solid #444;
+      padding: 20px 0;
+    }
+
+    .btn-secondary {
+      background-color: #444;
+      color: #f8f8f8;
+      padding: 10px 20px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-size: 1rem;
+      border: 1px solid #777;
+    }
+
+    .btn-secondary:hover {
+      background-color: #666;
+    }
+
+    .back-btn {
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1 class="title">🧩 Review Potential Match</h1>
+
+    {% if matches|length > 0 %}
+      {% set lost_item = matches[0][0] %}
+      {% set found_item = matches[0][1] %}
+
+      <div class="match-container">
+        <div class="case-card">
+          <img src="{{ url_for('static', filename='uploads/' + lost_item.image_filename) }}" alt="Lost Item">
+          <div class="content">
+            <h3>Lost: {{ lost_item.title }}</h3>
+            <p><strong>Category:</strong> {{ lost_item.category }}</p>
+            <p><strong>Date:</strong> {{ lost_item.date_lost }}</p>
+            <p><strong>Description:</strong> {{ lost_item.description }}</p>
+          </div>
+        </div>
+
+        <div class="case-card">
+          <img src="{{ url_for('static', filename='uploads/' + found_item.image_filename) }}" alt="Found Item">
+          <div class="content">
+            <h3>Found: {{ found_item.title }}</h3>
+            <p><strong>Category:</strong> {{ found_item.category }}</p>
+            <p><strong>Date:</strong> {{ found_item.date_found }}</p>
+            <p><strong>Description:</strong> {{ found_item.description }}</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="action-buttons">
+        <form method="POST" action="{{ url_for('approve_match', lost_id=lost_item.id, found_id=found_item.id) }}" style="display: inline;">
+          <button type="submit" class="btn-approve">✅ Approve Match</button>
+        </form>
+        <form method="POST" action="{{ url_for('reject_match', lost_id=lost_item.id, found_id=found_item.id) }}" style="display: inline;">
+          <button type="submit" class="btn-reject">❌ Reject Match</button>
+        </form>
+      </div>
+    {% else %}
+      <div class="action-buttons">
+        <h2 style="text-align:center; margin-top: 60px;">🎉 No matches remaining for review!</h2>
+      </div>
+    {% endif %}
+
+    <hr style="margin: 40px 0; border: 1px dashed #555;">
+
+    <div class="back-btn" style="margin-top: 20px;">
+      <a href="{{ url_for('detective_dashboard') }}" class="btn-secondary">🔙 Back to Dashboard</a>
+    </div>
+
+    <div class="footer">
+      Detective DB – Lost & Found Bureau Headquarters 🕵️‍♂️
+    </div>
+  </div>
+</body>
+</html>

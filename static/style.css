@@ -1,0 +1,231 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Special Elite', serif;
+    background: #1e1e1e;
+    color: #f0e6d2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background-image: url('https://www.transparenttextures.com/patterns/paper-fibers.png');
+  }
+  
+  .container {
+    text-align: center;
+    padding: 2rem;
+    border: 2px dashed #f0e6d2;
+    border-radius: 15px;
+    max-width: 600px;
+    background-color: rgba(0, 0, 0, 0.6);
+  }
+  
+  .title {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+  }
+  
+  .subtitle {
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .info {
+    font-size: 1rem;
+    margin-bottom: 2rem;
+  }
+  
+  .button {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    font-size: 1.1rem;
+    color: #1e1e1e;
+    background-color: #f0e6d2;
+    text-decoration: none;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+  }
+  
+  .button:hover {
+    background-color: #e0d5b2;
+    transform: scale(1.05);
+  }
+  
+  footer {
+    position: absolute;
+    bottom: 1rem;
+    font-size: 0.8rem;
+    color: #888;
+  }
+  .form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-top: 2rem;
+  }
+  
+  .form input {
+    padding: 0.75rem;
+    border: none;
+    border-radius: 6px;
+    font-size: 1rem;
+  }
+  
+  .form button {
+    background-color: #f0e6d2;
+    color: #1e1e1e;
+    font-weight: bold;
+    padding: 0.75rem;
+    border: none;
+    border-radius: 6px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: background 0.3s ease;
+  }
+  
+  .form button:hover {
+    background-color: #e0d5b2;
+  }
+  .role-buttons {
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .role-btn {
+    padding: 1rem;
+    background-color: #f0e6d2;
+    color: #1e1e1e;
+    border-radius: 8px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    transition: background 0.3s ease;
+  }
+  
+  .role-btn:hover {
+    background-color: #e3d5af;
+  }
+  .dashboard-buttons {
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .dash-btn {
+    background-color: #dbeafe;
+    color: #1f2937;
+    padding: 1rem;
+    border-radius: 10px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    text-decoration: none;
+    transition: background 0.3s;
+  }
+  
+  .dash-btn:hover {
+    background-color: #bfdbfe;
+  }
+
+  body {
+    font-family: 'Special Elite', monospace;
+    background-color: #1c1c1c;
+    color: #f0f0f0;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .container {
+    max-width: 800px;
+    margin: auto;
+    padding: 40px 20px;
+  }
+  
+  .title {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+  }
+  
+  .subtitle {
+    text-align: center;
+    font-size: 1.2rem;
+    color: #bbb;
+    margin-bottom: 30px;
+  }
+  
+  /* Form styling */
+  .form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  .form input,
+  .form select,
+  .form textarea {
+    background-color: #2e2e2e;
+    color: #f0f0f0;
+    border: 1px solid #555;
+    padding: 12px;
+    border-radius: 8px;
+    font-size: 1rem;
+  }
+  
+  .form textarea {
+    resize: vertical;
+    min-height: 100px;
+  }
+  
+  /* Primary button */
+  .btn-primary {
+    background-color: #ffdd57;
+    color: #1c1c1c;
+    padding: 12px;
+    border: none;
+    border-radius: 10px;
+    font-weight: bold;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.3s ease;
+  }
+  
+  .btn-primary:hover {
+    background-color: #e6c84a;
+  }
+  
+  /* Secondary (gray) button */
+  .btn-secondary {
+    display: inline-block;
+    background-color: #444;
+    color: #f8f8f8;
+    padding: 10px 20px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-size: 1rem;
+    border: 1px solid #777;
+    transition: background 0.3s ease;
+  }
+  
+  .btn-secondary:hover {
+    background-color: #666;
+  }
+  
+  /* Back button alignment */
+  .back-btn {
+    text-align: center;
+    margin-top: 30px;
+  }
+  .footer {
+    margin-top: 60px;
+    padding: 20px;
+    text-align: center;
+    font-size: 14px;
+    color: #888;
+    border-top: 1px solid #444;
+  }
+  

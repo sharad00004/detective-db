@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Detective Dashboard | Detective DB</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+  <link href="https://fonts.googleapis.com/css2?family=Special+Elite&display=swap" rel="stylesheet" />
+</head>
+<body>
+  <div class="container">
+    <h1 class="title">🕵️ Detective Dashboard</h1>
+    <p class="subtitle">Welcome back, detective. What’s on today’s docket?</p>
+
+    <div class="dashboard-buttons">
+      <a href="{{ url_for('pending_cases') }}" class="dash-btn">📂 View Pending Cases</a>
+      <a href="{{ url_for('match_review') }}" class="dash-btn">🔗 Review Matched Cases</a>
+      <a href="{{ url_for('solved_cases') }}" class="dash-btn">✅ View Solved Cases</a>
+    </div>
+
+    <div class="back-btn">
+      <a href="{{ url_for('detective_logout') }}" class="btn-secondary">🚪 Logout</a>
+
+    </div>
+    <div class="footer">
+        Detective DB – Lost & Found Bureau Headquarters 🕵️‍♂️
+      </div>
+  </div>
+</body>
+</html>

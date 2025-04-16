@@ -1,0 +1,29 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Detective DB - Lost and Found Bureau</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <link href="https://fonts.googleapis.com/css2?family=Special+Elite&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="container">
+    <h1 class="title">🔎 Detective DB</h1>
+    <p class="subtitle">A tool by the Lost and Found Bureau</p>
+
+    <p class="info">Welcome to headquarters. Are you a client or the detective?</p>
+
+    <div class="role-buttons">
+      <a href="{{ url_for('client_login') }}" class="role-btn">🧳 I am a Client</a>
+      <a href="{{ url_for('detective_login') }}" class="role-btn">🕵️ I am the Detective</a>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+      Detective DB – A service by the Lost & Found Bureau 🕵️‍♀️
+    </div>
+  </div>
+</body>
+</html>

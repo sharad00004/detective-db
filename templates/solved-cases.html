@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Solved Cases | Detective DB</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+  <link href="https://fonts.googleapis.com/css2?family=Special+Elite&display=swap" rel="stylesheet" />
+  <style>
+    body {
+      font-family: 'Special Elite', monospace;
+      background-color: #1c1c1c;
+      color: #f0f0f0;
+      margin: 0;
+      padding: 0;
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: auto;
+      padding: 40px 20px;
+    }
+
+    .title {
+      text-align: center;
+      font-size: 2.5rem;
+      margin-bottom: 10px;
+    }
+
+    .subtitle {
+      text-align: center;
+      font-size: 1.2rem;
+      color: #bbb;
+    }
+
+    .card-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+      margin-top: 40px;
+    }
+
+    .card {
+      background-color: #2e2e2e;
+      color: #fff;
+      border-radius: 12px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+      overflow: hidden;
+      width: 300px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      border-bottom: 1px solid #444;
+    }
+
+    .card-content {
+      padding: 15px;
+    }
+
+    .card-content h3 {
+      margin-top: 0;
+      font-size: 1.2rem;
+      color: #ffdd57;
+    }
+
+    .card-content p {
+      margin: 5px 0;
+      font-size: 0.95rem;
+    }
+
+    .footer {
+      margin-top: 60px;
+      padding: 20px;
+      text-align: center;
+      font-size: 14px;
+      color: #888;
+      border-top: 1px solid #444;
+    }
+
+    .back-btn {
+      text-align: center;
+      margin-top: 30px;
+    }
+
+    .back-btn .btn {
+      background-color: #444;
+      color: #f8f8f8;
+      padding: 10px 20px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-size: 1rem;
+      border: 1px solid #777;
+    }
+
+    .back-btn .btn:hover {
+      background-color: #666;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1 class="title">✅ Solved Cases</h1>
+    <p class="subtitle">Here are the cases you've resolved successfully, Detective.</p>
+
+    <div class="card-container">
+      {% for pair in solved_data %}
+      <div class="card">
+        <img src="{{ url_for('static', filename='uploads/' + (pair.found.image_filename or 'placeholder.jpg')) }}" alt="Solved Item Image">
+        <div class="card-content">
+          <h3>{{ pair.found.item_name }}</h3>
+          <p><strong>Category:</strong> {{ pair.found.category }}</p>
+          <p><strong>Found:</strong> {{ pair.found.location_found }}</p>
+          <p><strong>Lost Reported From:</strong> {{ pair.lost.location_lost }}</p>
+          <p><strong>Solved On:</strong> {{ pair.approved_on }}</p>
+          <p>✅ Match verified and resolved by you.</p>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+
+    <div class="back-btn">
+      <a href="{{ url_for('detective_dashboard') }}" class="btn">🔙 Back to Dashboard</a>
+    </div>
+
+    <div class="footer">
+      Detective DB – Case Closed. Justice Served. 🕵️‍♀️
+    </div>
+  </div>
+</body>
+</html>

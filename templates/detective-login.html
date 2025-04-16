@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Detective Login | Detective DB</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <link href="https://fonts.googleapis.com/css2?family=Special+Elite&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="container">
+    <h1 class="title">🕵️ Detective Login</h1>
+    <p class="subtitle">Welcome, Detective. Time to solve some cases.</p>
+
+    <form method="POST" action="{{ url_for('detective_login') }}" class="form">
+      <input type="email" name="email" placeholder="Detective Email" required>
+      <input type="password" name="password" placeholder="Password" required>
+      <button type="submit" class="btn-primary">Enter HQ</button>
+    </form>
+
+    <div class="back-btn" style="margin-top: 20px;">
+      <span style="margin-right: 8px;">🏠 Not on a case?</span>
+      <a href="{{ url_for('home') }}" class="btn-secondary">Return to Lobby</a>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+      Detective DB – A service by the Lost & Found Bureau 🕵️‍♀️
+    </div>
+  </div>
+</body>
+</html>
