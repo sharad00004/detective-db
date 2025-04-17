@@ -146,6 +146,12 @@ def get_potential_matches():
 def home():
     return render_template('index.html')
 
+@app.route('/init-db')
+def init_db():
+    db.create_all()
+    return "Tables created successfully!"
+
+
 # Client-side pages
 @app.route('/client-home')
 def client_home():
