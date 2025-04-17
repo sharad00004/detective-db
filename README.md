@@ -1,4 +1,5 @@
 🕵️ Detective DB – Lost & Found Management System
+
 Detective DB is a detective-themed lost-and-found web application designed for colleges and institutions. Users can report lost or found items, and an admin (the "detective") matches and approves cases. The platform offers dynamic case tracking, submission management, and automatic matching of potential lost–found pairs using fuzzy logic.
 
 🔍 Features
